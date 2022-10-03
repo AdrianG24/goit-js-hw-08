@@ -23,8 +23,9 @@ const load = key => {
     console.error('Get state error: ', error.message);
   }
 };
-
-player.setCurrentTime(load(STORAGE_TIME));
+if (localStorage.getItem(STORAGE_TIME)) {
+  player.setCurrentTime(load(STORAGE_TIME));
+}
 
 player.on(
   'timeupdate',
